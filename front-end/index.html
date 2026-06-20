@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style/custom.css" />
+    <title>Table</title>
+</head>
+<body class="login-body">
+
+<div class="login-bg-orb"></div>
+<div class="login-bg-orb login-bg-orb--secondary"></div>
+
+<div class="container login-container">
+    <div class="row login-row">
+        <div class="col-12 pt-5 login-col">
+
+            <div class="w-50 login-card ms-auto me-auto">
+                <div class="login-card__header">
+                    <div class="login-card__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="currentColor"/>
+                            <path d="M12 14C7.03 14 3 17.13 3 21V22H21V21C21 17.13 16.97 14 12 14Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h1 class="mb-4 login-heading">Login</h1>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="form-row login-form-group">
+                        <label class="fs-5 mb-1 login-label">Username: </label>
+                        <input type="text" class="form-control login-input" id="loginName" placeholder="Enter your username" />
+                    </div>
+
+                    <div class="form-row login-form-group">
+                        <label class="fs-5 mb-1 login-label">Password: </label>
+                        <input type="password" class="form-control login-input" id="loginPassword" placeholder="Enter your password" />
+                    </div>
+
+                    <div class="d-flex justify-content-right login-actions">
+                        <button type="Submit" class="btn login-btn mt-4 ms-auto">
+                            Sign In &rarr;
+                        </button>
+                    </div>
+                </form>
+
+                <p class="login-register-text">Don't have an account? <a href="register.html" class="login-register-link">Create account</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="./script/jquery.js"></script>
+<script src="./script/bootstrap.min.js"></script>
+<script src="./script/bootstrap.bundle.min.js"></script>
+<script src="./script/authenticate.js"></script>
+<script src="./script/script.js"></script>
+</body>
+</html>

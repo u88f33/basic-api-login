@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style/custom.css" />
+    <title>Table</title>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row pt-5 pb-5">
+        <div class="col-8"></div>
+        <div class="d-flex col-4">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary w-50 me-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add Record
+                </button>
+
+                <!-- Button trigger modal -->
+                <button class="btn btn-danger w-50" onclick="logout()">
+                    Logout
+                </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<!-- Add Record Modal Box -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add new Student Record</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <form id="addRecordForm">
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label class="mb-2">Name: </label>
+                            <input type="text" 
+                                class="form-control"
+                                placeholder="Name" 
+                                aria-label="name"
+                                name="studentName"
+                                required="required">
+                        </div>
+                        <div class="col">
+                            <label class="mb-2">Email: </label>
+                            <input type="email" 
+                                class="form-control" 
+                                placeholder="Email" 
+                                aria-label="email"
+                                name="studentEmail"
+                                required="required"
+                                >
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label class="mb-2">Phone: </label>
+
+                            <input type="tel" 
+                                class="form-control"
+                                placeholder="phone" 
+                                aria-label="phone"
+                                name="studentPhone"
+                                required="required">
+                        </div>
+                        <div class="col">
+                            <label class="mb-2">Age: </label>
+
+                            <input type="number" 
+                                class="form-control" 
+                                placeholder="Age" 
+                                aria-label="age"
+                                name="studentAge"
+                                required="required">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label class="mb-2">Course: </label>
+
+                            <input type="text" 
+                                class="form-control" 
+                                placeholder="Course" 
+                                aria-label="course"
+                                name="studentCourse"
+                                required="required">
+                        </div>
+                        <div class="col">
+                            <label class="mb-2">Upload Image: </label>
+                            <input type="file" 
+                                class="form-control"
+                                placeholder="Gender" 
+                                aria-label="gender"
+                                name="studentImage">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                        <label>Gender: </label>
+                        <div class="me-4">
+                                <input type="radio" 
+                                    class="me-2"
+                                    placeholder="Gender" 
+                                    aria-label="gender"
+                                    value="Male"
+                                    name="studentGender"
+                                    id="genderMale"
+                                    checked="checked"><label for="genderMale"> Male</label>
+                            </div>
+
+                            <div class="me-4">
+                                <input type="radio" 
+                                    class="me-2"
+                                    placeholder="Gender" 
+                                    aria-label="gender"
+                                    value="Female"
+                                    id="genderFemale"
+                                    name="studentGender"><label for="genderFemale"> Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+    </div>
+  </div>
+</div>
+
+<!-- View Record Modal Box -->
+<div class="modal fade" id="viewModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">View Student Record</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="viewStudentRecord">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Record Modal Box -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Student Record</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <form action="" id="updateRecordForm">
+
+            </form>
+        
+    </div>
+  </div>
+</div>
+
+<script src="./script/jquery.js"></script>
+<script src="./script/bootstrap.min.js"></script>
+<script src="./script/bootstrap.bundle.min.js"></script>
+<script src="./script/authenticate.js"></script>
+<script src="./script/script.js"></script>
+</body>
+</html>
