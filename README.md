@@ -1,0 +1,1 @@
+I developed a REST API using Node.js and Mongoose, implementing JWT authentication for secure user login and authorization. JWT tokens are generated on successful login and used on the frontend to protect routes and pages. Users can access protected resources only after authenticating and obtaining a valid token.
